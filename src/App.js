@@ -1,12 +1,16 @@
 import './App.css';
-import { Trivia } from './Trivia'
+import { ContentDisplay } from './ContentDisplay';
 
 
 function App() {
+
   return(
+    <>
     <div className='trivia-app'>
-      <Trivia/>
+      <h1>Trivia Game</h1>
+      <ContentDisplay/>
     </div>
+    </>
   )
 }
 
