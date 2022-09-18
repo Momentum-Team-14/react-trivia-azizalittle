@@ -1,17 +1,20 @@
 import './App.css';
-import { ContentDisplay } from './ContentDisplay';
+import { useState } from 'react'
+import { ShowCategories } from './ShowCategories';
+import { Trivia } from './Trivia'
 
 
 function App() {
+  const [catID, setCatID] = useState(null)
 
   return(
     <>
-    <div className='trivia-app'>
       <h1>Trivia Game</h1>
-      <ContentDisplay/>
-    </div>
+      {(!catID)
+      ? <ShowCategories setCatID={setCatID}/> 
+      : <Trivia catID={catID} setCatID={setCatID}/>}
     </>
-  )
+  );
 }
 
 export default App

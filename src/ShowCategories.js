@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 
-export const ShowCategories = () => {
-    const [setCatID] = useState(null)
+export const ShowCategories = ({setCatID}) => {
     const [categories, setCategories] = useState([])
+
 
 useEffect(() => {
     console.log('cat effect running')
@@ -25,5 +25,5 @@ return (
        
     </div>
 )
-
 }
+
