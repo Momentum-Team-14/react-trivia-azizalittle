@@ -19,7 +19,7 @@ return (
         <div className="cat-list">
             {console.log(categories)}
             {categories.map((cat) => ( 
-                 <div><button key={cat.id} onClick={() => {setCatID(cat.id)}}>{cat.name}</button></div>
+                 <div><button className="button is-link m-2" key={cat.id} onClick={() => {setCatID(cat.id)}}>{cat.name}</button></div>
              ))} 
         </div>
        

@@ -9,7 +9,7 @@ function App() {
 
   return(
     <>
-      <h1>Trivia Game</h1>
+      <p className="title is-3 text-strong m-2">Trivia Game</p>
       {(!catID)
       ? <ShowCategories setCatID={setCatID}/> 
       : <Trivia catID={catID} setCatID={setCatID}/>}

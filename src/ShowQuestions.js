@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
 export const ShowQuestions = ({score, setScore, setCatID, questions, questionIndex, setQuestionIndex}) => {
-    const [feedback, setFeedback] = useState('')
-    
+   
     const htmlDecode = input => new DOMParser()
     .parseFromString(input, "text/html")
     .documentElement.textContent 
@@ -21,24 +20,13 @@ export const ShowQuestions = ({score, setScore, setCatID, questions, questionInd
     }
 
     const handleClick = (option, correctAnswer) => {
-        console.log('handle click is handled 💢')
-        console.log(`correct answer: ${correctAnswer} 🏆`)
-        console.log(`option: ${option}`)
         
         if (option === correctAnswer) {
             setScore(parseInt(score + 1))
-            console.log(`correct! score: ${score + 1} 🟢`)
             setQuestionIndex(questionIndex + 1)
-            setFeedback('correct')
         } else {
-            
-            console.log(`incorrect! score: ${score} 🔴`)
             setQuestionIndex(questionIndex + 1)
-            console.log(questionIndex)
-            setFeedback('incorrect')
-    }
-
-    }
+    }}
         
         
     if (questions.length > 0) {
@@ -47,19 +35,19 @@ export const ShowQuestions = ({score, setScore, setCatID, questions, questionInd
         options = [...questions[questionIndex].incorrect_answers, questions[questionIndex].correct_answer]
 
     return (
-            <div>
-                <h2>Play a Game</h2>
+        <div className="card m-6">
                 <div className="questions-list">
                     {console.log(questions)}
-                    {htmlDecode(questions[questionIndex].question)}
+                    <p className="subtitle is-6 m-6">Current Category: {questions[questionIndex].category}</p>
+                    <div className="title is-5">{htmlDecode(questions[questionIndex].question)}</div>
                     {shuffleArray(options.map((option) => (
-                        <div class="answer" onClick={() => {
+                        <button className="button is-success is-large is-light mb-4 mx-3 is-flex-direction-row is-justify-content-center" onClick={() => {
                             handleClick(option, correctAnswer)
-                        }}>{option}</div>
+                        }}>{option}</button>
                         )))}
                 </div>
-                <div className="feedback">{feedback}</div>
-                <button onClick={()=>{setCatID(null)}}>Back to Category List</button>
+                <footer className="card-footer">
+                <button className="button is-small is-warning card-footer-item" onClick={()=>{setCatID(null)}}>Back to Category List</button> </footer>
             </div>
         )
     }
