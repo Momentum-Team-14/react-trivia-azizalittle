@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react'
-import ShowCategories from './components/ShowCategories'
-import Trivia from './components/Trivia'
+import { ShowCategories } from './ShowCategories';
+import { Trivia } from './Trivia';
 
 
 function App() {
